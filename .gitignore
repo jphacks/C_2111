@@ -13,7 +13,7 @@ venv.bak/
 .hypothesis/
 .pytest_cache/
 
-
+*.pyc
 
 .DS_Store
 __pycache__/

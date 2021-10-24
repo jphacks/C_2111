@@ -8,8 +8,9 @@ import torch
 from pytorch_lightning import loggers as pl_loggers
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from wtfml.cross_validation.fold_generator import FoldGenerator
-from wtfml.data_loaders.nlp.classification import DistilBERTDataset
 from wtfml.data_loaders.pl_data_module.data_module import plDataModule
+# module for distilbert
+from wtfml.data_loaders.nlp.classification import DistilBERTDataset
 from wtfml.engine.nlp.model import  DistilBERTBaseClassifier
 from wtfml.engine.pl_engine.DistilBERT_classification import DistilBERTClassificationPlEngine
 
@@ -54,7 +55,7 @@ for fold in range(NUM_SPLIT):
         train_batch_size=8, val_batch_size=8
     )
 
-    classification_model = DistilBERTBaseClassifier(num_classes=4)
+    classification_model = DistilBERTBaseClassifier(num_classes=2)
 
     pl_engine = DistilBERTClassificationPlEngine(
         model=classification_model,

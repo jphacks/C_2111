@@ -1,0 +1,20 @@
+# vscode
+.vscode/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+.hypothesis/
+.pytest_cache/
+
+*.pyc
+
+.DS_Store
+__pycache__/
+data/

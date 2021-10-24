@@ -2,6 +2,11 @@ import os
 from os import listdir
 from os.path import isdir, isfile, join
 from typing import List
+import numpy as np
+
+def np_softmax(x):
+    exp_x = np.exp(x)
+    return exp_x / np.sum(exp_x)
 
 
 def basename(path: str) -> str:

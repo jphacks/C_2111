@@ -17,8 +17,16 @@ from tqdm import tqdm
 nest_asyncio.apply()
 since = None
 until = None
-month_delta = 1
-q = ""
+month_delta = 6
+q_list = [
+    "アミトリプチリン","イミプラミン","スルモンチール","アナフラニール","アモキサン","アンプリット",
+    "プロチアデン","ノリトレン","ルジオミール","クロンモリン","ノイオミール","マプロミール","テトラミド","テシプール",
+    "セチプチリンマレイン","レスリン","デジレル","アンデプレ","デプロメール","ルボックス","フルボキサミンマレイン","パキシル",
+    "パロキセチン","ジェイゾロフト","レクサプロ","ミルナシプラン","トレドミン","サインバルタ","リフレックス","レメロン","スルピリド",
+    "ドグマチール","ミラドール","アビリット","マーゲノール","ベタナ",]
+
+q = "鬱　辛い"
+
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)
 save_path = os.path.join(save_folder, f"{q}.csv")
@@ -49,6 +57,9 @@ print("end run")
 search_result_df = twint.storage.panda.Tweets_df
 search_result_df = search_result_df.drop_duplicates(subset="username").reset_index()
 print("検索終わり")
+
+print(len(search_result_df))
+search_result_df.to_csv(save_path, encoding = "utf-8")
 
 """
 以下特定の条件を消したいとき利用
@@ -110,5 +121,4 @@ print("検索終わり")
 #             break
 
 
-print(len(search_result_df))
-search_result_df.to_csv(save_path, encoding = "utf-8")
+

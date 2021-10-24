@@ -1,10 +1,11 @@
 import json
 from typing import Any
 import requests
-from requests.sessions import session
-
 
 class Goo:
+    """
+    gooAPIをpythonで使えるようにする
+    """
     def __init__(self, app_id:str, request_id:str) -> None:
         self.app_id = app_id
         self.request_id = request_id
@@ -47,9 +48,7 @@ class Goo:
     def slot(self, sentence:str, slot_filter:str = None) -> Any:
         url = "https://labs.goo.ne.jp/api/slot"
         if slot_filter is None:
-            payload = {
-                "app_id":self.app_id, "request_id": self.request_id, "sentence":sentence,
-                }
+            payload = {"app_id":self.app_id, "request_id": self.request_id, "sentence":sentence,}
         else:
             payload = {
                 "app_id":self.app_id, "request_id": self.request_id, "sentence":sentence, "slot_filter":slot_filter
@@ -58,4 +57,9 @@ class Goo:
         r = requests.post(url, data=json.dumps(payload).encode(), headers=headers)
         return r 
 
-
+    def hiragana(self, sentence:str, output_type:str = "hiragana") -> Any:
+        url = "https://labs.goo.ne.jp/api/hiragana"
+        payload = {"app_id":self.app_id, "request_id": self.request_id, "sentence":sentence, "output_type":output_type}
+        headers = {'Content-Type': 'application/json'}
+        r = requests.post(url, data=json.dumps(payload).encode(), headers=headers)
+        return r 

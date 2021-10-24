@@ -26,9 +26,9 @@ class OnnxPredictor:
         )
         if device == "cpu":
             providers = ["CPUExecutionProvider"]
-        else:  # TODO GPUのときのプロバイダーの実装
+        else:
             raise ValueError(
-                "GPUのONNXランタイムの実装はまだです。。。(実装していただければご報告ください。テンプレートを書き換えます。)"
+                "GPUのONNXランタイムはしないです。"
             )
         self.session = onnxruntime.InferenceSession(
             model_path, sess_options, providers=providers

@@ -1,4 +1,6 @@
 from goo_lab.goo_apis import Goo
+import transformers
+import torch
 
 app_id = "e8be92a5e7fbf6a4b60bb8ff34cbdbf551e65a626b32090fe095864a7f2565e3"
 g = Goo(app_id=app_id, request_id="record001").textpair(text1="日本人", text2="アメリカ人")
@@ -24,4 +26,9 @@ print(g.text)
 print("スロット値")
 sentence = "名前は田中太郎で、男性で、30歳です。港区芝浦3-4-1に住んでいます。"
 g = Goo(app_id=app_id, request_id="record001").slot(sentence=sentence)
+print(g.text)
+
+print("ひらがな化")
+sentence = "名前は田中太郎で、男性で、30歳です。港区芝浦3-4-1に住んでいます。"
+g = Goo(app_id=app_id, request_id="record001").hiragana(sentence=sentence)
 print(g.text)

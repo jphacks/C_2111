@@ -21,6 +21,7 @@ until = None
 month_delta = 1
 q = "死にたい"
 save_folder = "../data"
+os.makedirs(save_folder, exist_ok=True)
 save_path = os.path.join(save_folder, f"{q}.csv")
 
 since = since or datetime.strftime(

@@ -5,7 +5,6 @@ import re
 import time
 from datetime import datetime
 from re import T
-
 import neologdn
 import nest_asyncio
 import pandas as pd
@@ -19,7 +18,7 @@ nest_asyncio.apply()
 since = None
 until = None
 month_delta = 1
-q = "死にたい"
+q = ""
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)
 save_path = os.path.join(save_folder, f"{q}.csv")

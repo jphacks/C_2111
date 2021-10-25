@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    container_name: "jphacks"
+    build: .
+    user: root
+    volumes:
+      - ./:/workspace
+    ports:
+      - 8881:8881
+    tty: True

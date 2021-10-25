@@ -19,3 +19,4 @@ venv.bak/
 __pycache__/
 model/
 .ipynb_checkpoints/
+.devcontainer/

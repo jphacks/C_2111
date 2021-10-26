@@ -1,3 +1,10 @@
+# Docker環境の入り方
+```
+git clone このレポジトリ
+cd backend
+docker-compose up -d --build
+```
+
 # サンプル（プロダクト名）
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)

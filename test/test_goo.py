@@ -1,7 +1,7 @@
-from ..app.goo_lab.goo_apis import Goo
-import transformers
-import torch
-import onnxruntime
+import sys
+sys.path.append("../")
+from goo_lab.goo_apis import Goo
+
 
 app_id = "e8be92a5e7fbf6a4b60bb8ff34cbdbf551e65a626b32090fe095864a7f2565e3"
 

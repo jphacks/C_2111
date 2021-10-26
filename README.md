@@ -1,7 +1,9 @@
 # Docker環境の入り方
+
+新しいコンパラとか入れたいときはたかしさんに相談する（必ず）
+
 ```
 git clone このレポジトリ
-cd backend
 docker-compose up -d --build
 ```
 

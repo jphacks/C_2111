@@ -20,3 +20,5 @@ __pycache__/
 model/
 .ipynb_checkpoints/
 .devcontainer/
+data/
+onnx_model/

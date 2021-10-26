@@ -19,10 +19,6 @@ emoji = "^1.6.1"
 onnx = "^1.10.1"
 onnxruntime = "^1.9.0"
 Django = "^3.2.8"
-<<<<<<< HEAD
-
-=======
->>>>>>> a0f82c60e862103689f785f1797efd28a447ce1f
 
 [tool.poetry.dev-dependencies]
 

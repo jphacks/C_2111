@@ -1,7 +1,7 @@
 import numpy as np
 import os 
 import sys
-sys.path.append("/workspaces/C_2111/backend/app/bert")
+sys.path.append("/workspaces/C_2111/app/bert")
 import onnxruntime
 from transformers import DistilBertTokenizer
 from wtfml.data_loaders.nlp.utils import clean_sentence

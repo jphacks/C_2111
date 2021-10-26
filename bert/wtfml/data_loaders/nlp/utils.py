@@ -1,13 +1,11 @@
 import json
 import os
 import re
-
 import emoji
 import mojimoji
 import neologdn
-import sys
-sys.path.append("/workspaces/C_2111/backend//bert")
-print(os.getcwd())
+
+
 emoji_json_path = "emoji/emoji_ja.json"
 json_open = open(emoji_json_path)
 emoji_dict = json.load(json_open)

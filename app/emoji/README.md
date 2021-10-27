@@ -1,1 +1,0 @@
-this json data comes from [this repository](https://github.com/yagays/emoji-ja)

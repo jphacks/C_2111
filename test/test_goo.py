@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../")
+sys.path.append("./")
 from goo_lab.goo_apis import Goo
 
 
@@ -12,7 +12,15 @@ print(g.text)
 print("固有表現抽出")
 sentence = "俺はジャイアン、ガキ大将兼株式会社ドラえもんの社長。"
 g = Goo(app_id=app_id, request_id="record001").entity(sentence=sentence)
+print(sentence)
 print(g.text)
+
+print("固有表現抽出")
+sentence = "先週、遠藤さんに掃除を手伝ってといったら無視されました。とてもつらいです。"
+g = Goo(app_id=app_id, request_id="record001").entity(sentence=sentence)
+print(sentence)
+print(g.text)
+
 
 print("キーワード")
 sentence = "俺はジャイアン、ガキ大将兼株式会社ドラえもんの社長。"

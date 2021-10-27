@@ -29,7 +29,6 @@ def index(request):
         upload = UploadForm(request.POST, request.FILES)
         if upload.is_valid():
             data = pd.read_csv(io.StringIO(request.FILES['testfile'].read().decode('utf-8')), delimiter=',')
-
             response = to_csv(data)
 
             return response

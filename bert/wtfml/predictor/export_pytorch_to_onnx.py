@@ -10,7 +10,7 @@ from wtfml.engine.nlp.model import  DistilBERTBaseClassifier
 from wtfml.engine.pl_engine.DistilBERT_classification import DistilBERTClassificationPlEngine
 
 
-pl_model_path = "model/2021-10-24_distil/1/epoch=9-valid_loss=0.6320-valid_acc=1.0000.ckpt" #TODO:pathの変更
+pl_model_path = "model/2021-10-27_distil/epoch=9-valid_loss=0.6226-valid_acc=0.8033.ckpt" #TODO:pathの変更
 onnx_save_path = None
 is_bert_model: bool = False
 is_optimeze: bool = False and is_bert_model  # if you use BERT model you can set True

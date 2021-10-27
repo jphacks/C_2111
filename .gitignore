@@ -9,7 +9,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+.history/
 .hypothesis/
 .pytest_cache/
 

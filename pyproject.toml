@@ -19,6 +19,7 @@ emoji = "^1.6.1"
 onnx = "^1.10.1"
 onnxruntime = "^1.9.0"
 Django = "^3.2.8"
+streamlit = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 

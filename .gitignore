@@ -22,3 +22,5 @@ model/
 .devcontainer/
 *.csv
 *.onnx
+
+local_settings.py

@@ -10,7 +10,6 @@ import nest_asyncio
 import pandas as pd
 import requests
 import twint
-from bs4 import BeautifulSoup
 from dateutil.relativedelta import relativedelta
 from tqdm import tqdm
 
@@ -18,14 +17,8 @@ nest_asyncio.apply()
 since = None
 until = None
 month_delta = 6
-q_list = [
-    "アミトリプチリン","イミプラミン","スルモンチール","アナフラニール","アモキサン","アンプリット",
-    "プロチアデン","ノリトレン","ルジオミール","クロンモリン","ノイオミール","マプロミール","テトラミド","テシプール",
-    "セチプチリンマレイン","レスリン","デジレル","アンデプレ","デプロメール","ルボックス","フルボキサミンマレイン","パキシル",
-    "パロキセチン","ジェイゾロフト","レクサプロ","ミルナシプラン","トレドミン","サインバルタ","リフレックス","レメロン","スルピリド",
-    "ドグマチール","ミラドール","アビリット","マーゲノール","ベタナ",]
 
-q = "鬱　辛い"
+q = "学校 行きたくない"
 
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)

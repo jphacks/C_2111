@@ -18,7 +18,7 @@ since = None
 until = None
 month_delta = 6
 
-q = "学校 行きたくない"
+q = ""
 
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)

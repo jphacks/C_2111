@@ -20,17 +20,26 @@ class Goo:
 
     def entity(self, sentence:str, class_filter = None) -> Any:
         url = "https://labs.goo.ne.jp/api/entity"
-        payload = {"app_id": self.app_id, "request_id": self.request_id, "sentence": sentence}
+        if class_filter is None:
+            payload = {"app_id": self.app_id, "request_id": self.request_id, "sentence": sentence}
+        else:
+            payload = {"app_id": self.app_id, "request_id": self.request_id, "sentence": sentence, "class_filter":class_filter}
         headers = {'Content-Type': 'application/json'}
         r = requests.post(url, data=json.dumps(payload).encode(), headers=headers)
         return r 
 
     def keyword(self, title:str, body:str, max_num:int = 10, focus = None) -> Any:
         url = "https://labs.goo.ne.jp/api/keyword"
-        payload = {
-            "app_id":self.app_id, "request_id": self.request_id, 
-            "title": title, "body": body, "max_num": max_num, "focus": focus
-            }
+        if focus is None:
+            payload = {
+                "app_id":self.app_id, "request_id": self.request_id, 
+                "title": title, "body": body, "max_num": max_num
+                }
+        else:
+            payload = {
+                "app_id":self.app_id, "request_id": self.request_id, 
+                "title": title, "body": body, "max_num": max_num, "focus": focus
+                }
         headers = {'Content-Type': 'application/json'}
         r = requests.post(url, data=json.dumps(payload).encode(), headers=headers)
         return r 
@@ -40,6 +49,10 @@ class Goo:
         if pos_filter is None:
             payload = {
                 "app_id":self.app_id, "request_id": self.request_id, "sentence":sentence, "info_filter":info_filter,
+                }
+        else:
+            payload = {
+                "app_id":self.app_id, "request_id": self.request_id, "sentence":sentence, "info_filter":info_filter,"pos_filter":pos_filter
                 }
         headers = {'Content-Type': 'application/json'}
         r = requests.post(url, data=json.dumps(payload).encode(), headers=headers)

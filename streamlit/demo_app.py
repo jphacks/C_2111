@@ -2,10 +2,11 @@ from os import read
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import sys 
+sys.path.append("./")
 # 自作のやつら
 from pytorch_utils import OnnxPredictor
-from goo_apis import Goo
+from goo_lab.goo_apis import Goo
 
 uploaded_file = st.file_uploader("ファイルアップロード", type='csv')
 

@@ -6,7 +6,7 @@ from django_app.forms import UploadForm
 import csv
 import io
 import pandas as pd
-
+from goo_lab.goo_apis import goo
 
 def index(request):
     return render(request, 'index.html')

@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django_app.pytorch_utils import OnnxPredictor
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django_app.forms import UploadForm, MemberForm
-from django_app.models import Member
+from django_app.forms import UploadForm, DailyReportForm
+from django_app.models import DailyReport
 import csv
 import io
 import pandas as pd
-from goo_lab.goo_apis import goo
+from goo_lab.goo_apis import Goo
+
 
 def index(request):
     return render(request, 'index.html')
@@ -18,43 +19,37 @@ def load_model(model_path: str = "./onnx_model/epoch=9-valid_loss=0.6226-valid_a
     return predictor
 
 
-def to_csv(df):
-    response = HttpResponse(content_type='text/csv; charset=UTF-8')
-    response['Content-Disposition'] = 'attachment; filename="result.csv"'
-
-    df.to_csv(path_or_buf=response, encoding='utf-8-sig', index=False)
-
-    return response
-
-# Create your views here.
-
-
-def index(request):
-    if request.method == 'POST':
-        upload = UploadForm(request.POST, request.FILES)
-        if upload.is_valid():
-            data = pd.read_csv(io.StringIO(
-                request.FILES['testfile'].read().decode('utf-8')), delimiter=',')
-            model = load_model()
-            l = []
-            for text in data["tweet"]:
-                l.append(model.predict(text)[0][0][0])
-            data["score"] = l
-            return render(request, 'result.html', {'result': data.to_html()})
-    else:
-        upload = UploadForm()
-        return render(request, "index.html", {'form': upload})
-
 def new(request):
     params = {'message': '', 'form': None}
     if request.method == 'POST':
-        form = MemberForm(request.POST)
+        form = DailyReportForm(request.POST)
         if form.is_valid():
             form.save()
         else:
             params['message'] = '再入力してください'
             params['form'] = form
-    else: 
-        params['form'] = MemberForm()
-    return render(request, '../templates/user/new.html', params)
+    else:
+        params['form'] = DailyReportForm()
+    return render(request, 'user/new.html', params)
 
+
+@login_required
+def info(request):
+    return render(request, 'info.html')
+
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = "accounts/signup.html"
+    success_url = reverse_lazy('top')
+
+    def form_valid(self, form) -> HttpResponse:
+        user = form.save()
+        login(self.request, user)
+        messages.add_message(self.request, messages.SUCCESS, '会員登録に成功しました')
+        self.object = user
+        return HttpResponseRedirect(self.get_success_url())
+
+    def form_invalid(self, form) -> HttpResponse:
+        messages.add_message(self.request, messages.ERROR, '会員登録に失敗しました')
+        return super().form_invalid()

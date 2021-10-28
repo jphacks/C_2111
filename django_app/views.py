@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django_app.forms import UploadForm, DailyReportForm
 from django_app.models import DailyReport
+from django.contrib.auth.decorators import login_required
 import csv
 import io
 import pandas as pd
@@ -36,20 +37,3 @@ def new(request):
 @login_required
 def info(request):
     return render(request, 'info.html')
-
-
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    template_name = "accounts/signup.html"
-    success_url = reverse_lazy('top')
-
-    def form_valid(self, form) -> HttpResponse:
-        user = form.save()
-        login(self.request, user)
-        messages.add_message(self.request, messages.SUCCESS, '会員登録に成功しました')
-        self.object = user
-        return HttpResponseRedirect(self.get_success_url())
-
-    def form_invalid(self, form) -> HttpResponse:
-        messages.add_message(self.request, messages.ERROR, '会員登録に失敗しました')
-        return super().form_invalid()

@@ -17,16 +17,27 @@ g = Goo(app_id=app_id, request_id="record001")
 #     print(result["ne_list"])
 
 print("キーワード")
-for title, text in zip(df["username"],df["tweet"]):
-    result = g.keyword(title=title, 
-    body = text).json()
-    print(result)
-    print(result["keywords"])
+# for title, text in zip(df["username"],df["tweet"]):
+#     result = g.keyword(title=title, 
+#     body = text).json()
+    
+#     for i in result["keywords"]:
+#         print(list(i.keys())[0])
+
 
 def counter(texts_list: list):
     words_count = defaultdict(int)
     words = []
     for text in texts_list:
-        result = g.keyword(title=title, 
-        body = text).json()
-        words_count
+        result = g.keyword(title="title", body = text).json()
+        for i in result["keywords"]:
+            words_count[list(i.keys())[0]]+=1
+            words.append(list(i.keys())[0])
+
+    return words_count, words
+
+words_count, words = counter(df["tweet"])
+text = ' '.join(words)
+fpath = "/usr/share/fonts/truetype/hanazono/HanaMinA.ttf"
+wordcloud = WordCloud(background_color="white",font_path=fpath,width=900, height=500).generate(text)
+wordcloud.to_file("./test/wordcloud_sample.png")

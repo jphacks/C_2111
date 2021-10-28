@@ -11,6 +11,7 @@ RUN apt-get update && apt-get -y install git
 RUN apt-get install gcc -y
 RUN apt-get install g++ -y
 RUN apt-get install curl -y
+RUN apt-get install fonts-mplus -y
 RUN pip install --upgrade pip
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y

@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django_app.pytorch_utils import OnnxPredictor
 from django.http import HttpResponse
 from django.template import loader
-from django_app.forms import UploadForm
+from django_app.forms import UploadForm, MemberForm
+from django_app.models import Member
 import csv
 import io
 import pandas as pd
@@ -43,3 +44,17 @@ def index(request):
     else:
         upload = UploadForm()
         return render(request, "index.html", {'form': upload})
+
+def new(request):
+    params = {'message': '', 'form': None}
+    if request.method == 'POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            params['message'] = '再入力してください'
+            params['form'] = form
+    else: 
+        params['form'] = MemberForm()
+    return render(request, '../templates/user/new.html', params)
+

@@ -1,8 +1,7 @@
-<div class="form-group">
-    <form method="POST" class="form" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="file-upload-wrapper">
-            <p>テストファイルを選択<br \>
-                {{ form.testfile }}
-            </p>
-        </div>
+
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block main %}
+<h2>トップページ</h2>
+{% endblock main %}

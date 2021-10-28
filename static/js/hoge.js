@@ -17,6 +17,7 @@ function csv_array(data) {
         dataArray[i] = dataString[i].split(',');
     }
     let insertElement = ''; //テーブルタグに表示する用の変数
+    
     dataArray.forEach((element) => { //配列の中身を表示
         insertElement += '<tr>';
         element.forEach((childElement) => {

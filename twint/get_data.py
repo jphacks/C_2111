@@ -18,7 +18,7 @@ since = None
 until = None
 month_delta = 6
 
-q = ""
+q = "今日"
 
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)
@@ -30,7 +30,7 @@ since = since or datetime.strftime(
 print(since)
 until = until or datetime.strftime(datetime.today(), "%Y-%m-%d")
 print(until)
-limit = 500
+limit = 25000
 # Configure
 c = twint.Config()
 c.Search = q
@@ -50,6 +50,14 @@ print("end run")
 search_result_df = twint.storage.panda.Tweets_df
 search_result_df = search_result_df.drop_duplicates(subset="username").reset_index()
 print("検索終わり")
+
+# anti_list = []
+
+# for i, search_result in search_result_df.iterrows():
+#     for anti in anti_list:
+#         if anti in search_result["tweet"]:
+#             search_result_df.drop(index = i, inplace = True)
+#             break
 
 print(len(search_result_df))
 search_result_df.to_csv(save_path, encoding = "utf-8")
@@ -104,14 +112,7 @@ search_result_df.to_csv(save_path, encoding = "utf-8")
 
 
 
-# anti_list = [
-# ]
 
-# for i, search_result in search_result_df.iterrows():
-#     for anti in anti_list:
-#         if anti in search_result["tweet"]:
-#             search_result_df.drop(index = i, inplace = True)
-#             break
 
 
 

@@ -21,6 +21,6 @@ model/
 .ipynb_checkpoints/
 .devcontainer/
 *.csv
-*.onnx
+
 
 local_settings.py

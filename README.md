@@ -1,11 +1,4 @@
-# Docker環境の入り方
-
-新しいコンパラとか入れたいときはたかしさんに相談する（必ず）
-
-```
-git clone このレポジトリ
-docker-compose up -d --build
-```
+# Mental Checker
 
 # サンプル（プロダクト名）
 

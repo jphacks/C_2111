@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from wordcloud import WordCloud
 
 def create_wordcloud(csv_path:str="./user_data/user_data_sampled.csv", text_column_name:str = "tweet"):
-    df = pd.read_csv(csv_path).sample(50).reindex()
+    df = pd.read_csv(csv_path).reindex()
     words_count = defaultdict(int)
     words = []
     app_id = "e8be92a5e7fbf6a4b60bb8ff34cbdbf551e65a626b32090fe095864a7f2565e3"

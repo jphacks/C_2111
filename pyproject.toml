@@ -22,6 +22,8 @@ Django = "^3.2.8"
 streamlit = "^1.1.0"
 wordcloud = "^1.8.1"
 django-bootstrap5 = "^2.1.2"
+nlplot = "^1.4.0"
+plotly = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 

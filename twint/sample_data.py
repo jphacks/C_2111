@@ -1,3 +1,4 @@
+# 鬱の薬を使っている人からのスクレイピング
 import twint
 import os
 import pandas as pd

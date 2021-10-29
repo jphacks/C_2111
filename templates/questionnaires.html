@@ -1,0 +1,20 @@
+{% extends 'base_nofeeling.html' %}
+{% load django_bootstrap5 %}
+
+{% block main %}
+<h2>アンケート一覧</h2>
+<table class="table table-hover table-light">
+    <tr>
+        <th>タイトル</th>
+        <th>作成日時</th>
+        <th>アンケートのリンク</th>
+    </tr>
+    {% for q in questionnaires %}
+    <tr>
+        <td><a href="{% url 'django_app:info' questionnaire_id=q.id %}" class="widelink">{{ q.title }}</a></td>
+        <td>{{ q.date }}</td>
+        <td><a href="{% url 'django_app:new' questionnaire_id=q.id %}">リンク</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock main %}

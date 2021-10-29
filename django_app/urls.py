@@ -1,12 +1,11 @@
 from django.urls import path
 from . import views
-from django_app.views import InfoView
 
 app_name = 'django_app'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('new/', views.new, name='new'),
-    path('info/', InfoView.as_view(), name='info')
+    path('create/', views.create, name='create'),
+    path('questionnaires/', views.questionnaires, name='questionnaires'),
+    path('<uuid:questionnaire_id>/info/', views.info, name='info'),
+    path('<uuid:questionnaire_id>/new/', views.new, name='new'),
 ]
-
-

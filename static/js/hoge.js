@@ -1,3 +1,5 @@
+//csvをフロントで表示できるように読み込み
+
 const output_csv = document.getElementById('color_list');
 
 function csv_data(dataPath) {

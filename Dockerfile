@@ -26,4 +26,4 @@ RUN poetry config virtualenvs.create false \
 
 CMD python3 manage.py makemigrations
 CMD python3 manage.py migrate
-CMD gunicorn -b 0:0:0:0 django_pjt.wsgi:application
+CMD gunicorn django_pjt.wsgi:application --bind 0.0.0.0:$PORT

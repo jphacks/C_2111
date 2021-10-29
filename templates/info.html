@@ -1,7 +1,19 @@
-
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 
 {% block main %}
 <h2>情報</h2>
+<table>
+    <tr>
+        <th>名前</th>
+        <th>組織名</th>
+    </tr>
+    {% for person in member %}
+    <tr>
+        <td>{{ person.person_name }}</td>
+        <td>{{ person.organization_name }}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock main %}
+[]

@@ -5,6 +5,8 @@ from django.template import loader
 from django_app.forms import UploadForm, DailyReportForm
 from django_app.models import DailyReport
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 import csv
 import io
 import pandas as pd
@@ -41,7 +43,10 @@ def new(request):
         params['form'] = DailyReportForm()
     return render(request, 'user/new.html', params)
 
+class InfoView(LoginRequiredMixin, TemplateView):
+    template_name = "info.html"
 
-@login_required
-def info(request):
-    return render(request, 'info.html')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) # はじめに継承元のメソッドを呼び出す
+        context["member"] = DailyReport.objects.all()
+        return context

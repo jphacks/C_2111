@@ -17,13 +17,15 @@ function windowResized(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   colorMode(RGB, 255);
 	angleMode(DEGREES);
   noFill();
 	//noLoop();
 	kMax = random(0.6, 1.0);
 	noStroke();
+  canvas.position(0,0);
+  canvas.style('z-index', '-1');
 }
 
 function draw() {

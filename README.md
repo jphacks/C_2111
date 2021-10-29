@@ -1,11 +1,4 @@
-# Docker環境の入り方
-
-新しいコンパラとか入れたいときはたかしさんに相談する（必ず）
-
-```
-git clone このレポジトリ
-docker-compose up -d --build
-```
+# Mental Checker
 
 # サンプル（プロダクト名）
 
@@ -28,12 +21,18 @@ docker-compose up -d --build
 ## 開発技術
 ### 活用した技術
 #### API・データ
-* 
-* 
+- [gooラボAPI](https://labs.goo.ne.jp/api/)
+- [DistilBERT-base-jp](https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp)
+- Twitierデータ
 
 #### フレームワーク・ライブラリ・モジュール
-* 
-* 
+- Docker
+- Django
+- pytorch
+- transformers
+- onnx
+- nplot
+- 
 
 #### デバイス
 * 
@@ -45,5 +44,4 @@ docker-compose up -d --build
 * 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
-* 
-* 
+- [玉井 森彦,  米澤（深谷）拓吾 川西 直 長谷川 晃朗, 武内 良男, 田近 亜蘭, 小川 雄右, 古川 壽亮,　(2016)．うつ傾向推定に向けたツイート内容の解析法についての一検討　言語処理学会 第22回年次大会 発表論文集, 385-388](https://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B2-1.pdf)

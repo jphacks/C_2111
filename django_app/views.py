@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-def load_model(model_path: str = "./onnx_model/epoch=9-valid_loss=0.6226-valid_acc=0.8033.onnx"):
+def load_model(model_path: str = "./onnx_model/epoch=9-valid_loss=0.1356-valid_acc=0.9745_quant.onnx"):
     predictor = OnnxPredictor(model_path=model_path, device="cpu")
     return predictor
 
@@ -26,6 +26,14 @@ def new(request):
         form = DailyReportForm(request.POST)
         if form.is_valid():
             form.save()
+            model = load_model()
+            score = model.predict(form["text"].value())
+            DailyReport.objects.values().filter(
+                organization_name = form["organization_name"].value(),
+                department_name = form["department_name"].value(),
+                person_name = form["person_name"].value(),
+                text = form["text"].value(),
+            ).update(score = score[0][0][1])
         else:
             params['message'] = '再入力してください'
             params['form'] = form

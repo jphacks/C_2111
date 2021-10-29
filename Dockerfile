@@ -5,13 +5,15 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /workspace
 
 COPY poetry.lock pyproject.toml ./
-
+COPY goo_lab accounts django_pjt django_app onnx_model templates ./
+COPY static .gitignore manage.py db.sqlite3 graph ./
 # Git のインストール
 RUN apt-get update && apt-get -y install git
 RUN apt-get install gcc -y
 RUN apt-get install g++ -y
 RUN apt-get install curl -y
 RUN apt-get install fonts-mplus -y
+RUN pip install gunicorn
 RUN pip install --upgrade pip
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -22,3 +24,6 @@ RUN pip install poetry
 RUN poetry config virtualenvs.create false \
   && poetry install
 
+CMD python3 manage.py makemigrations
+CMD python3 manage.py migrate
+CMD gunicorn -b 0:0:0:0 django_pjt.wsgi:application

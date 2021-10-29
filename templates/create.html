@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Create</title>
+</head>
+
+{% block main %}
+<body>
+    <h1>新しいアンケートを作成</h1>
+    <form method="POST" validate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="作成" %}
+    </form>
+    <p>{{ message }}</p>
+</body>
+
+</html>
+{% endblock main %}
+
+

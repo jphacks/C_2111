@@ -43,5 +43,10 @@ def new(request):
         params['form'] = DailyReportForm()
     return render(request, 'user/new.html', params)
 
-class SampleTemplateView(LoginRequiredMixin, TemplateView):
+class InfoView(LoginRequiredMixin, TemplateView):
     template_name = "info.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) # はじめに継承元のメソッドを呼び出す
+        context["member"] = DailyReport.objects.all()
+        return context

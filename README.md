@@ -33,6 +33,7 @@
 - UIがよいとは言えない。改善の余地あり。
 - 情報確認画面からワンクリックで対象者にDMを送ることができるシステムなどを作成することなどができればベストであると考えている。
 - 今回は回答者にテキストを入力してもらうことを想定しているがTwitterなどのSNSから潜在うつ患者に対してアプローチできればより多くの潜在患者を救うことにつながるのではないかと考えている。
+- 今回の開発では「気軽にデータを入力してもらう」ことを重視したためテキスト以外の情報の入力を求めていないが、性別や年齢、生活環境などに関するデータを入力してもらうことによってより正確なうつ傾向スコアを算出することができる可能性がある。
 ### 注力したこと（こだわり等）
 1. 精神状態を調査する場合、回答者が不調だと思われたくないために正直に回答しないことがある。例えば学校のアンケートなどでは「先生に見られるから当たり障りの無いことを書いておこう」と思う学生も多いと考え、うつ傾向スコア見ることが可能なを運用者に「相談センター」や「NPO法人」などを想定する事によってより本音に近いテキスト情報を取得できるように工夫をした。
 1. テキストを入力した回答者には自身のスコアを知らせず、運用者のみが閲覧できるようにすることによって回答者自身の精神衛生保ちつつ（スコアを見て気落ちしてしまう可能性がある）、治療へと誘導することができる。
@@ -42,13 +43,13 @@
 ### 活用した技術
 #### API・データ
 - [gooラボAPI](https://labs.goo.ne.jp/api/)（形態素解析・固有表現抽出APIを使用）
-- [BandaiNamcoResearchInc/DistilBERT-base-jp](https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp)
+- [BandaiNamcoResearchInc/DistilBERT-base-jp](https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp)（Fine Tuningして使用）
 - Twitierデータ
 
 #### フレームワーク・ライブラリ・モジュール
 - Docker
 - Django
-- pytorch
+- pytorch_lightning
 - transformers
 - onnx
 - onnxruntime
@@ -62,8 +63,8 @@
 #### ハッカソンで開発した独自機能・技術
 - ログインされたユーザ情報と投稿情報を相互に結び付けるデータベース構造
 - DistilBERTをFineTuningしたモデルの開発。
-- 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
+- 絵文字をテキスト化し情報を活用できるように工夫した。[フォルダ](https://github.com/jphacks/C_2111/blob/master/bert/wtfml/utils/utils.py)
+- 量子化・ONNXによる軽量化[フォルダ](https://github.com/jphacks/C_2111/tree/master/bert/wtfml/predictor)
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 - 玉井 森彦,  米澤（深谷）拓吾 川西 直 長谷川 晃朗, 武内 良男, 田近 亜蘭, 小川 雄右, 古川 壽亮,　(2016)．うつ傾向推定に向けたツイート内容の解析法についての一検討　言語処理学会 第22回年次大会 発表論文集, 385-388 [URL](https://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B2-1.pdf)
-- 

@@ -8,12 +8,17 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'css/hoge.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="{% static 'js/feeling.js' %}"></script>
     {% block extraheader %}{% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+<nav class="navbar navbar-expand flex-md-row navbar-light bg-light">
     <div class="container justify-content-between">
-        <a href="/" class="navbar-brand">Title</a>
+        <a href="/" class="navbar-brand">Mental Checker</a>
         <ul class="navbar-nav mr-md-2">
             {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">ログアウト</a></li>

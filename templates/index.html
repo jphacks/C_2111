@@ -3,5 +3,8 @@
 
 {% block main %}
 <h2>トップページ</h2>
-<a class="subtitile" href="{% url 'django_app:info' %}">フォームを登録する</a>
+{% if user.is_authenticated %}
+<a class="subtitile" href="{% url 'django_app:new' %}">フォームを登録する</a><br>
+<a class="subtitile" href="{% url 'django_app:info' %}">情報を確認する</a>
+{% endif %}
 {% endblock main %}

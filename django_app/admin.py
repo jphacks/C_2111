@@ -5,6 +5,7 @@ from .models import DailyReport
 
 
 class DailyReportAdmin(admin.ModelAdmin):
+    readonly_fields = ["date"]
     fields = [
         'organization_name',
         'department_name',

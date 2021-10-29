@@ -18,7 +18,7 @@ since = None
 until = None
 month_delta = 6
 
-q = "今日"
+q = "うれしい"
 
 save_folder = "../data"
 os.makedirs(save_folder, exist_ok=True)
@@ -30,7 +30,7 @@ since = since or datetime.strftime(
 print(since)
 until = until or datetime.strftime(datetime.today(), "%Y-%m-%d")
 print(until)
-limit = 25000
+limit = 10000
 # Configure
 c = twint.Config()
 c.Search = q

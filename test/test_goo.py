@@ -11,7 +11,7 @@ print(g.text)
 
 print("固有表現抽出")
 sentence = "俺はジャイアン、ガキ大将兼株式会社ドラえもんの社長。"
-g = Goo(app_id=app_id, request_id="record001").entity(sentence=sentence)
+g = Goo(app_id=app_id, request_id="record001").entity(sentence=sentence, class_filter="PSN")
 print(sentence)
 print(g.text)
 

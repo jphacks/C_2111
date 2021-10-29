@@ -4,6 +4,10 @@ import pandas as pd
 
 df = pd.read_csv("../user_data/user_data.csv").sample(30000).reindex()
 df["target"] = 1
+df_shinitai = pd.read_csv("../data/死にたい.csv").reindex()
+df_fuan = pd.read_csv("../data/不安 学校.csv").reindex()
+df_ikitaku = pd.read_csv("../data/学校 行きたくない.csv").reindex()
+df = pd.concat([df , df_fuan, df_shinitai, df_ikitaku], axis = 0)
 df = df[["username","tweet","target"]]
 
 df_no_utsu = pd.read_csv("../user_data/no_utsu.csv").sample(5000).reindex()

@@ -7,11 +7,15 @@
     <tr>
         <th>名前</th>
         <th>組織名</th>
+        <th>日報</th>
+        <th>Score</th>
     </tr>
     {% for person in member %}
     <tr>
         <td>{{ person.person_name }}</td>
         <td>{{ person.organization_name }}</td>
+        <td>{{ person.text }}</td>
+        <td>{{ person.score }}</td>
     </tr>
     {% endfor %}
 </table>

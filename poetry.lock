@@ -302,6 +302,14 @@ beautifulsoup4 = ">=4.8.0"
 Django = ">=2.2"
 
 [[package]]
+name = "django-widget-tweaks"
+version = "1.4.9"
+description = "Tweak the form field rendering in templates, not in python-level form definitions."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "emoji"
 version = "1.6.1"
 description = "Emoji for Python"
@@ -1889,7 +1897,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "907309a4cc38d8ece96728ad3d5833aa880a3164f7e0c71bf8a454e5d281a81c"
+content-hash = "d6c26486f51aafffe77a429d14bc0bd95d2e558e3e259f175be932214cbcd5f3"
 
 [metadata.files]
 absl-py = [
@@ -2127,6 +2135,10 @@ django = [
 django-bootstrap5 = [
     {file = "django-bootstrap5-2.1.2.tar.gz", hash = "sha256:ac05ca69b990e62657c0bf40db14946c22fd64c7fb9dfe094a9f22ecc58f86c5"},
     {file = "django_bootstrap5-2.1.2-py3-none-any.whl", hash = "sha256:0021355df9212c511876e3f5336ba470416a6dd52f61bf5acec5bb783ab41ff5"},
+]
+django-widget-tweaks = [
+    {file = "django-widget-tweaks-1.4.9.tar.gz", hash = "sha256:19bcb66a4a9e68493ced04e7124882d753c5be517ed001556f9e35a40147f545"},
+    {file = "django_widget_tweaks-1.4.9-py2.py3-none-any.whl", hash = "sha256:d6c64fbf92cd2df9031f597c1374982233c05a1190d295c39d1c57ce007569c7"},
 ]
 emoji = [
     {file = "emoji-1.6.1.tar.gz", hash = "sha256:53d61a8e4c025f6c295ab99c842302c66d47952199c4fde66dd060dee3ad4324"},

@@ -28,6 +28,7 @@ python-dotenv = "^0.19.1"
 psycopg2-binary = "^2.9.1"
 gunicorn = "^20.1.0"
 japanize-matplotlib = "^1.1.3"
+django-widget-tweaks = "^1.4.9"
 
 [tool.poetry.dev-dependencies]
 

@@ -10,8 +10,18 @@
     <link rel="stylesheet" href="{% static 'css/MainStyle.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+=======
+<<<<<<< HEAD
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+=======
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+>>>>>>> ac9c968e7c6eba03d9d5fc4995f23ebcf5f958a1
+>>>>>>> 39694c0c1ab53cb73098697b1ca4848aad52b48c
     <script src="{% static 'js/feeling.js' %}"></script> -->
     {% block extraheader %}{% endblock %}
 </head>
@@ -21,8 +31,11 @@
         <a href="/" class="navbar-brand">Mental Checker</a>
         <ul class="navbar-nav mr-md-2">
             {% if user.is_authenticated %}
+<<<<<<< HEAD
             <li class="nav-item"><a class="nav-link" href="{% url 'django_app:new' %}">フォーム</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'django_app:info' %}">統計</a></li>
+=======
+>>>>>>> 39694c0c1ab53cb73098697b1ca4848aad52b48c
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">ログアウト</a></li>
             {% else %}
             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">ログイン</a></li>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Questionnaires</title>
+</head>
+
+{% block main %}
+<body>
+    <h1>作成したアンケート一覧</h1>
+    {% for q in ss %}
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</body>
+
+</html>
+{% endblock main %}

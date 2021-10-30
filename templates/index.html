@@ -3,7 +3,14 @@
 
 {% block main %}
 {% if user.is_authenticated %}
+<<<<<<< HEAD
 <!-- <h3><a class="subtitile" href="{% url 'django_app:new' %}" style="color:#000000">フォームを登録する</a><br></h3>
 <h3><a class="subtitile" href="{% url 'django_app:info' %}">統計を見る</a></h3> -->
+=======
+{% comment %} <h3><a class="subtitile" href="{% url 'django_app:new' %}">フォームを登録する</a><br></h3> {% endcomment %}
+<h3><a class="subtitile" href="{% url 'django_app:create' %}">アンケートを新規作成する</a><br></h3>
+<h3><a class="subtitile" href="{% url 'django_app:questionnaires' %}">作成したアンケート一覧</a><br></h3>
+{% comment %} <h3><a class="subtitile" href="{% url 'django_app:info' %}">情報を確認する</a></h3> {% endcomment %}
+>>>>>>> 39694c0c1ab53cb73098697b1ca4848aad52b48c
 {% endif %}
 {% endblock main %}

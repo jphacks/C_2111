@@ -37,7 +37,7 @@ function draw() {
 		let size = radius + i * inter;
 		let k = kMax * sqrt(i/n);
 		let noisiness = maxNoise * (i / n);
-    blob(size, width/2, height/2, k, t - i * step, noisiness);
+    blob(size, width/2, height/2-70, k, t - i * step, noisiness);
   }
 }
 

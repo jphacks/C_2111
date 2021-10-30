@@ -1,7 +1,7 @@
 /*csvをフロントに表示する際に、用いるcss*/
 
 body {
-    background: #e0e5ec;
+    background: white;
 	font-family: 'Noto Sans JP', sans-serif;
 	font-family: 'Playfair Display', serif;
     font-weight: 100;

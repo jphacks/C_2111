@@ -7,6 +7,7 @@
     {% csrf_token %}
     <input type="hidden" name="next" value="{{next}}">
     {% bootstrap_form form %}
+    <br>
     {% bootstrap_button button_type="submit" content="ログイン"%}
 </form>
 {% endblock main %}

@@ -11,7 +11,7 @@
 
 {% block main %}
 <body>
-    <h1>アンケートフォーム</h1>
+    <h2>アンケートフォーム</h2>
     <form method="POST" validate>
         {% csrf_token %}
         {{ form.as_p }}

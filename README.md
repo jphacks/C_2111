@@ -68,3 +68,4 @@
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 - 玉井 森彦,  米澤（深谷）拓吾 川西 直 長谷川 晃朗, 武内 良男, 田近 亜蘭, 小川 雄右, 古川 壽亮,　(2016)．うつ傾向推定に向けたツイート内容の解析法についての一検討　言語処理学会 第22回年次大会 発表論文集, 385-388 [URL](https://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B2-1.pdf)
+- [WTFML: Well That's Fantastic Machine Learning](https://github.com/abhishekkrthakur/wtfml)(フォルダ構成を参考にした。)

@@ -64,7 +64,7 @@
 - ログインされたユーザ情報と投稿情報を相互に結び付けるデータベース構造
 - DistilBERTをFineTuningしたモデルの開発。
 - 絵文字をテキスト化し情報を活用できるように工夫した。[フォルダ](https://github.com/jphacks/C_2111/blob/master/bert/wtfml/utils/utils.py)
-- 量子化・ONNXによる軽量化[フォルダ](https://github.com/jphacks/C_2111/tree/master/bert/wtfml/predictor)
+- 量子化・ONNXによる軽量化[フォルダ](https://github.com/jphacks/C_2111/tree/master/bert/wtfml/predictor)（CPU運用においても耐えうる速度を実現）
 
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 - 玉井 森彦,  米澤（深谷）拓吾 川西 直 長谷川 晃朗, 武内 良男, 田近 亜蘭, 小川 雄右, 古川 壽亮,　(2016)．うつ傾向推定に向けたツイート内容の解析法についての一検討　言語処理学会 第22回年次大会 発表論文集, 385-388 [URL](https://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B2-1.pdf)

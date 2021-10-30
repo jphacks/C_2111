@@ -11,6 +11,9 @@
 <br>
 <br>
 <br>
+{% if exists_psn_freq %}
+    <img src="data:image/png;base64,{{psn_freq_base64Img}}"/>
+{% endif %}
 <table class="table table-hover table-light">
     <tr>
         <th>name</th>
@@ -26,7 +29,4 @@
     {% endfor %}
 </table>
 
-{% if exists_psn_freq %}
-    {% autoescape off %}{{psn_freq_base64Img}}{% endautoescape off %}
-{% endif %}
 {% endblock main %}

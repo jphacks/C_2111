@@ -2,17 +2,17 @@ import plotly.graph_objects as go
 from collections import Counter, defaultdict
 import pandas as pd
 import numpy as np
+import sys
+sys.path.append("./")
 from goo_lab.goo_apis import Goo
 from itertools import count
 from PIL import Image
 import io
 import base64
-import sys
 import matplotlib.pyplot as plt
 import japanize_matplotlib
-sys.path.append("./")
 
-app_id = "e8be92a5e7fbf6a4b60bb8ff34cbdbf551e65a626b32090fe095864a7f2565e3"
+app_id = "8a984a9b1976aea08bd8d816b648192501d4f65f103c8961882e38285b75b83b"
 # .entity(sentence=sentence, class_filter="PSN")
 g = Goo(app_id=app_id, request_id="record001")
 

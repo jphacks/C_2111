@@ -11,11 +11,11 @@
 
 {% block main %}
 <body>
-    <h2>アンケートフォーム</h2>
+    <h1>アンケートフォーム</h1>
     <form method="POST" validate>
         {% csrf_token %}
-        {{ form.as_p }}
-        {% bootstrap_button button_type="submit" content="送信" %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="続けて送信" %}
     </form>
     <p>{{ message }}</p>
 </body>

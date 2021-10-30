@@ -5,20 +5,22 @@
 <h2>「{{questionnaire}}」の情報</h2>
 <table class="table table-hover table-light">
     <tr>
-        {% comment %} <th>名前</th>
-        <th>組織名</th> {% endcomment %}
         <th>name</th>
         <th>日報</th>
         <th>Score</th>
     </tr>
     {% for dr in daily_reports %}
     <tr>
-        {% comment %} <td>{{ dr.person_name }}</td>
-        <td>{{ dr.organization_name }}</td> {% endcomment %}
         <td>{{ dr.author }}</td>
         <td>{{ dr.text }}</td>
         <td>{{ dr.score }}</td>
     </tr>
     {% endfor %}
 </table>
+{% if exists_wordcloud %}
+    <img src="data:image/png;base64,{{wc_base64Img}}"/>
+{% endif %}
+{% if exists_psn_freq %}
+    {% autoescape off %}{{psn_freq_base64Img}}{% endautoescape off %}
+{% endif %}
 {% endblock main %}

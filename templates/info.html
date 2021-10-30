@@ -3,6 +3,14 @@
 
 {% block main %}
 <h2>「{{questionnaire}}」の情報</h2>
+
+
+{% if exists_wordcloud %}
+    <img src="data:image/png;base64,{{wc_base64Img}}"/>
+{% endif %}
+<br>
+<br>
+<br>
 <table class="table table-hover table-light">
     <tr>
         <th>name</th>
@@ -17,9 +25,7 @@
     </tr>
     {% endfor %}
 </table>
-{% if exists_wordcloud %}
-    <img src="data:image/png;base64,{{wc_base64Img}}"/>
-{% endif %}
+
 {% if exists_psn_freq %}
     {% autoescape off %}{{psn_freq_base64Img}}{% endautoescape off %}
 {% endif %}

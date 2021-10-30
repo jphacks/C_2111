@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
-
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
 
@@ -11,16 +11,33 @@
 
 {% block main %}
 <body>
-    <h1>アンケートフォーム</h1>
+    <h2>アンケートフォーム</h2>
     <form method="POST" validate>
         {% csrf_token %}
-        {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content="続けて送信" %}
+
+
+        {% for field in form %}
+        <div class="form-group">
+          <!-- {{ field.label_tag }} -->
+  
+          {% render_field field class="form-control" %}
+  
+          {% if field.help_text %}
+            <small class="form-text text-muted">
+              {{ field.help_text }}
+            </small>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+        <!-- {{ form.as_p }} -->
+
+        <br>
+        {% bootstrap_button button_type="submit" content="送信" %}
     </form>
     <p>{{ message }}</p>
 </body>
 
 </html>
 {% endblock main %}
-
 

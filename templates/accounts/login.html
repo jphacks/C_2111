@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
+<!-- {% load widget_tweaks %} -->
 
 {% block main %}
 <h2>ログイン</h2>
@@ -7,6 +8,6 @@
     {% csrf_token %}
     <input type="hidden" name="next" value="{{next}}">
     {% bootstrap_form form %}<br>
-    {% bootstrap_button button_type="submit" content="ログイン"%}
+    {% bootstrap_button class="btn btn-primary" button_type="submit" content="ログイン"%}
 </form>
 {% endblock main %}

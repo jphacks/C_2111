@@ -11,10 +11,10 @@
 
 {% block main %}
 <body>
-    <h1>新しいアンケートを作成</h1>
+    <h2>アンケートを新規作成</h2>
     <form method="POST" validate>
         {% csrf_token %}
-        {% bootstrap_form form %}
+        {% bootstrap_form form %}<br>
         {% bootstrap_button button_type="submit" content="作成" %}
     </form>
     <p>{{ message }}</p>

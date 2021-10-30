@@ -21,6 +21,8 @@
         <a href="/" class="navbar-brand">Mental Checker</a>
         <ul class="navbar-nav mr-md-2">
             {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'django_app:create' %}">新規作成</a><li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'django_app:questionnaires' %}">一覧</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">ログアウト</a></li>
             {% else %}
             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">ログイン</a></li>

@@ -62,6 +62,7 @@ def new(request, questionnaire_id):
             post.questionnaire = questionnaire
             post.author = request.user
             post.save()
+            return redirect('django_app:new', questionnaire_id=questionnaire_id)
         else:
             params['message'] = '再入力してください'
             params['form'] = form

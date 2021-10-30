@@ -10,9 +10,6 @@ class DailyReportForm(forms.ModelForm):
     class Meta:
         model = DailyReport
         fields = (
-            # 'organization_name',
-            # 'department_name',
-            # 'person_name',
             'text',
         )
 

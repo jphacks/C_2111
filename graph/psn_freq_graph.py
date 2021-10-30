@@ -7,7 +7,7 @@ from collections import Counter, defaultdict
 import plotly.graph_objects as go
 
 app_id = "e8be92a5e7fbf6a4b60bb8ff34cbdbf551e65a626b32090fe095864a7f2565e3"
-g = Goo(app_id=app_id, request_id="record001")#.entity(sentence=sentence, class_filter="PSN")
+g = Goo(app_id=app_id, request_id="record001")
 
 def create_psn_freq_graph(csv_path:str="./user_data/user_data_sampled.csv", text_column_name:str = "tweet"):
     df = pd.read_csv(csv_path).sample(100).reindex()
@@ -25,4 +25,4 @@ fig.add_trace(
 )
 
 fig.update_layout(title = "特定名詞の出現回数。", xaxis={'categoryorder':'total descending'})
-fig.write_image("./images/psn_freq.png", engine="kaleido", scale=10)
+print(fig.to_html(include_plotlyjs=False))

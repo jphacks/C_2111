@@ -12,13 +12,15 @@ import csv
 import io
 import pandas as pd
 from goo_lab.goo_apis import Goo
+from graph.word_cloud import create_wordcloud_base64
+from graph.psn_freq_graph import create_psn_freq_graph_base64
 
 
 def index(request):
     return render(request, 'index.html')
 
 
-def load_model(model_path: str = "./onnx_model/epoch=9-valid_loss=0.4620-valid_acc=0.7831_quant.onnx"):
+def load_model(model_path: str = "./onnx_model/epoch=9-valid_loss=0.1356-valid_acc=0.9745_quant.onnx"):
     predictor = OnnxPredictor(model_path=model_path, device="cpu")
     return predictor
 
@@ -62,6 +64,7 @@ def new(request, questionnaire_id):
             post.questionnaire = questionnaire
             post.author = request.user
             post.save()
+            return HttpResponseRedirect(reverse('django_app:index'))
         else:
             params['message'] = '再入力してください'
             params['form'] = form
@@ -74,5 +77,14 @@ def new(request, questionnaire_id):
 def info(request, questionnaire_id):
     questionnaire = get_object_or_404(Questionnaire, pk=questionnaire_id)
     daily_reports = DailyReport.objects.all().filter(questionnaire=questionnaire)
-    print(daily_reports, 0)
-    return render(request, 'info.html', {'questionnaire': questionnaire, 'daily_reports': daily_reports})
+    texts = []
+    for dr in list(daily_reports):
+        texts.append(dr.text)
+    wc_base64Img = create_wordcloud_base64(texts)
+    psn_freq_base64Img = create_psn_freq_graph_base64(texts)
+    return render(request, 'info.html', {'questionnaire': questionnaire,
+                                         'daily_reports': daily_reports,
+                                         'exists_wordcloud': bool(wc_base64Img is not None),
+                                         'wc_base64Img': wc_base64Img,
+                                         'exists_psn_freq': bool(psn_freq_base64Img is not None),
+                                         'psn_freq_base64Img': psn_freq_base64Img, })

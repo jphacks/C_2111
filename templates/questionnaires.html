@@ -13,7 +13,7 @@
     <tr>
         <td><a href="{% url 'django_app:info' questionnaire_id=q.id %}" class="widelink">{{ q.title }}</a></td>
         <td>{{ q.date }}</td>
-        <td><a href="{% url 'django_app:new' questionnaire_id=q.id %}">リンク</a></td>
+        <td><a href="{% url 'django_app:new' questionnaire_id=q.id %}">回答フォーム</a></td>
     </tr>
     {% endfor %}
 </table>
